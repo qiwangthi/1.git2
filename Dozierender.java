@@ -1,20 +1,16 @@
-import java.util.List;
-import java.util.ArrayList;
-
 public class Dozierender {
 
     private String name;
     private String fakultaet;
     private String bueronummer;
-    private List<String> termine;
-    private List<String> feedbacks;
-    
+
+    // private int note;
+
     public Dozierender(String name, String fakultaet, String bueronummer) {
         this.name = name;
         this.fakultaet = fakultaet;
         this.bueronummer = bueronummer;
-        this.termine = new ArrayList<>();
-        this.feedbacks = new ArrayList<>();
+        // this.note = note;
     }
 
     public String getName() {
@@ -41,30 +37,32 @@ public class Dozierender {
         this.bueronummer = bueronummer;
     }
 
-    public List<String> getTermine() {
-        return termine;
+    /*
+     * public void feedbackAnzeigen() {
+     * System.out.println("Feedback von: " + this.name);
+     * for (String feedback : feedback) {
+     * System.out.println(feedback);
+     * }
+     * }
+     * 
+     * /*
+     * public int getNote() {
+     * return note;
+     * }
+     * 
+     * public void setNote(int note) {
+     * this.note = note;
+     * }
+     */
+    // frage method
+    public void fragebeantworten(Studierender student, String antwort) {
+        System.out.println("Frage beantworten: " + antwort);
     }
-    
-    /*public void frageBeantworten(Studierender studierender, String antwort) {
-        System.out.println("Antwort von: "+this.name+"\nAntwort an: "+studierender.getName() + ": " + antwort);
-    }*/
+    // System.out.println("Frage beantworten: " + frage);
 
-    public void frageBeantworten(Studierender studierender, String antwort) {
-        System.out.println(name + " antwortet " + studierender.getName() + ": " + antwort);
-    }
-    
-    /*public void sprechstundeAnfrage(Studierender studierender, String frage) {
-        System.out.println("Frage von: "+studierender.getName()+"\nFrage an: "+this.name + ": " + frage);
-    }*/
+    public void sprechstundenanfrageerhalten() {
+        System.out.println("Sprechstundenanfrage erhalten von: " + this.name);
 
-    public void sprechstundenAnfrageEmpfangen(Studierender studierender, String termin) {
-        System.out.println(name + " empfängt Sprechstundenanfrage von " + studierender.getName() + ": " + termin);
-        termine.add(termin);
-    }
-
-    public void feedbackEmpfangen(String feedback) {
-        feedbacks.add(feedback);
-        System.out.println(name + " erhält Feedback: " + feedback);
     }
 
 }

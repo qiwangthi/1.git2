@@ -1,68 +1,52 @@
-import java.util.List;
-import java.util.ArrayList;
-
+// Klasse Studierender
 public class Studierender {
-     
+    // Datenfelder
     private String name;
-    private int matrikelnummer;
+    private String matrikelnummer;
     private String studiengang;
-    private List<String> sprechstundenAnfragen;
+    // protected List <String> feedback;
 
-    public Studierender(String name, int matrikelnummer, String studiengang) {
+    // Konstruktor
+    public Studierender(String name, String matrikelnummer, String studiengang) {
         this.name = name;
         this.matrikelnummer = matrikelnummer;
         this.studiengang = studiengang;
-        this.sprechstundenAnfragen = new ArrayList<>();
     }
 
+    // Get-Methode
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getMatrikelnummer() {
-        return matrikelnummer;
-    }
-
-    public void setMatrikelnummer(int matrikelnummer) {
-        this.matrikelnummer = matrikelnummer;
+    public String getMatrikelnummer() {
+        return this.matrikelnummer;
     }
 
     public String getStudiengang() {
-        return studiengang;
+        return this.studiengang;
     }
 
-    public void setStudiengang(String studiengang) {
-        this.studiengang = studiengang;
+    // Öffentliche Methode
+    public void frageStellen(String dozierender, String frage) {
+        System.out.println("von:" + this.name);
+        System.out.println("an:" + dozierender);
+        System.out.println("Frage:" + frage);
     }
 
-    public List<String> getSprechstundenAnfragen() {
-        return sprechstundenAnfragen;
-    }
-    
-    /*public void frageStellen(Dozierender dozierender, String frage) {
-        System.out.println("Frage von: "+this.name+"\nFrage an: "+dozierender.getName()+": " + frage);
-        //dozierender.frageBeantworten(this, frage);
-    }*/
+    // *methode um sprechstundenanfrage zu senden
+    public void sprechstundenAnfrageSenden(String dozierender, String grund) {
+        System.out.println("Sprechstundenanfrage von " + this.name);
+        System.out.println("an:" + dozierender);
+        System.out.println("Grund der Anfrage: " + grund);
+        // frageStellen(dozierender, "Sprechstundenanfrage:", grund);
 
-    public void frageStellen(Dozierender dozierender, String frage) {
-        System.out.println(name + " fragt " + dozierender.getName() + ": " + frage);
     }
 
-    /*public void sprechstundeAnfrage(Dozierender dozierender, String frage) {
-        this.sprechstundenAnfragen.add(frage);
-        System.out.println("Frage von: "+this.name+"\nFrage an: "+dozierender.getName()+": " + frage);
-        //dozierender.sprechstundeAnfragen(this, frage);
-    }*/
-
-    public void sprechstundenAnfrageSenden(Dozierender dozierender, String termin) {
-        String anfrage = "Sprechstundenanfrage: " + termin;
-        System.out.println(name + " sendet Sprechstundenanfrage an " + dozierender.getName() + ": " + anfrage);
-        sprechstundenAnfragen.add(anfrage);
-        dozierender.sprechstundenAnfrageEmpfangen(this, anfrage);
+    // feedback geben
+    public void feedbackGeben(Dozierender dozierender, String feedback) {
+        System.out.println("Feedback von: " + this.name);
+        System.out.println("an: " + dozierender);
+        System.out.println("Feedback: " + feedback);
     }
 
 }
